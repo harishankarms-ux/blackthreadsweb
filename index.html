@@ -311,8 +311,164 @@ h2 {
 }
 .wwd-text { font-size: 0.85rem; color: var(--grey-mid); line-height: 1.75; }
 
-/* CONTACT */
-#contact { background: var(--white); }
+/* HAMBURGER */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  cursor: pointer;
+  padding: 4px;
+  background: none;
+  border: none;
+  z-index: 300;
+}
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--charcoal);
+  border-radius: 2px;
+  transition: transform 0.3s, opacity 0.3s;
+}
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* MOBILE MENU DRAWER */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 70px; left: 0; right: 0;
+  background: var(--white);
+  border-top: 2px solid var(--yellow);
+  border-bottom: 2px solid var(--light-border);
+  z-index: 199;
+  flex-direction: column;
+  padding: 12px 0 20px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu a {
+  text-decoration: none;
+  font-size: 0.88rem; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--grey-mid);
+  padding: 14px 28px;
+  border-bottom: 1px solid var(--light-border);
+  transition: color 0.2s, background 0.2s;
+}
+.mobile-menu a:hover { color: var(--charcoal); background: var(--grey-bg); }
+.mobile-menu a.mobile-cta {
+  margin: 16px 28px 0;
+  background: var(--yellow);
+  color: var(--charcoal);
+  border-bottom: none;
+  border-radius: 4px;
+  text-align: center;
+  padding: 14px 28px;
+}
+.mobile-menu a.mobile-cta:hover { background: var(--yellow-dark); }
+#clients {
+  background: var(--grey-bg);
+  padding: 80px 60px;
+}
+.clients-header { text-align: center; margin-bottom: 52px; }
+.clients-header .section-tag {
+  justify-content: center;
+}
+.clients-header .section-tag::before { display: none; }
+.clients-header .section-tag::after {
+  content: ''; width: 24px; height: 2px; background: var(--yellow);
+}
+.clients-sub {
+  font-size: 0.95rem; color: var(--grey-mid);
+  line-height: 1.7; margin-top: 12px;
+  max-width: 480px; margin-left: auto; margin-right: auto;
+}
+
+/* CLIENTS / BRANDS */
+#clients {
+  background: var(--grey-bg);
+  padding: 80px 60px;
+}
+.clients-header { text-align: center; margin-bottom: 52px; }
+.clients-header .section-tag {
+  justify-content: center;
+}
+.clients-header .section-tag::before { display: none; }
+.clients-header .section-tag::after {
+  content: ''; width: 24px; height: 2px; background: var(--yellow);
+}
+.clients-sub {
+  font-size: 0.95rem; color: var(--grey-mid);
+  line-height: 1.7; margin-top: 12px;
+  max-width: 480px; margin-left: auto; margin-right: auto;
+}
+
+/* Marquee */
+.marquee-wrap {
+  overflow: hidden;
+  position: relative;
+  padding: 8px 0;
+}
+.marquee-wrap::before,
+.marquee-wrap::after {
+  content: '';
+  position: absolute; top: 0; bottom: 0; width: 100px; z-index: 2;
+  pointer-events: none;
+}
+.marquee-wrap::before {
+  left: 0;
+  background: linear-gradient(90deg, var(--grey-bg) 0%, transparent 100%);
+}
+.marquee-wrap::after {
+  right: 0;
+  background: linear-gradient(270deg, var(--grey-bg) 0%, transparent 100%);
+}
+.marquee-track {
+  display: flex;
+  gap: 0;
+  width: max-content;
+  animation: marquee-scroll 35s linear infinite;
+}
+.marquee-track:hover { animation-play-state: paused; }
+.brand-logo-card {
+  display: flex; align-items: center; justify-content: center;
+  padding: 18px 40px;
+  border: 1.5px solid var(--grey-card);
+  border-radius: 10px;
+  margin-right: 20px;
+  background: var(--white);
+  min-width: 160px; height: 80px;
+  transition: border-color 0.25s, box-shadow 0.25s;
+  flex-shrink: 0;
+}
+.brand-logo-card:hover {
+  border-color: var(--yellow);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+}
+.brand-logo-card svg,
+.brand-logo-card img {
+  width: auto;
+  height: 60px;
+  max-width: 186px;
+  object-fit: contain;
+  opacity: 0.65;
+  transition: opacity 0.25s;
+}
+.brand-logo-card:hover svg,
+.brand-logo-card:hover img { opacity: 1; }
+
+@keyframes marquee-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@media (max-width: 640px) {
+  #clients { padding: 64px 20px; }
+  .marquee-wrap::before, .marquee-wrap::after { width: 40px; }
+}
 .contact-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 80px; margin-top: 52px; }
 .ci-title {
   font-family: 'Raleway', sans-serif; font-size: 1.1rem; font-weight: 800;
@@ -333,6 +489,7 @@ h2 {
   font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em;
   text-transform: uppercase; color: var(--charcoal);
 }
+.req-star { color: var(--yellow-dark); font-size: 0.85rem; margin-left: 1px; }
 .form-input {
   background: var(--grey-bg); border: 2px solid var(--grey-card);
   border-radius: 7px; padding: 12px 15px;
@@ -395,6 +552,8 @@ h1 { animation: fadeUp 0.6s 0.22s both; }
 @media (max-width: 640px) {
   nav { padding: 0 20px; }
   .nav-links { display: none; }
+  .nav-cta { display: none; }
+  .hamburger { display: flex; }
   section { padding: 64px 20px; }
   #hero { padding: 90px 20px 60px; min-height: auto; }
   .cat-grid { grid-template-columns: repeat(2, 1fr); }
@@ -414,18 +573,44 @@ h1 { animation: fadeUp 0.6s 0.22s both; }
 
 <!-- NAV -->
 <nav>
-  <a href="#hero"><img src="Blackthreads Logo Black.png" alt="Blackthreads" class="logo-img"></a>
+  <a href="#hero"><img src="Blackthreads Logo Black.png" alt="Blackthreads Logo" class="logo-img"></a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#categories">Products</a></li>
     <li><a href="#printing">Printing</a></li>
     <li><a href="#whatwedo">Services</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="#clients">Clients</a></li>
+    <li><a href="#contact">Contact</a></li> 
   </ul>
   <a href="#contact" class="nav-cta">Get a Quote</a>
+  <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
-<!-- HERO -->
+<!-- MOBILE MENU DRAWER -->
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#about"      onclick="closeMenu()">About</a>
+  <a href="#categories" onclick="closeMenu()">Products</a>
+  <a href="#printing"   onclick="closeMenu()">Printing</a>
+  <a href="#whatwedo"   onclick="closeMenu()">Services</a>
+  <a href="#clients"    onclick="closeMenu()">Clients</a>
+  <a href="#contact"    onclick="closeMenu()">Contact</a>
+  <a href="#contact" class="mobile-cta" onclick="closeMenu()">Get a Quote</a>
+</div>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+  function closeMenu() {
+    hamburger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+  }
+</script>
 <section id="hero">
   <div class="hero-bg"></div>
   <div class="hero-overlay"></div>
@@ -443,18 +628,61 @@ h1 { animation: fadeUp 0.6s 0.22s both; }
 <!-- STATS STRIP -->
 <div id="stats-strip">
   <div class="hero-stat">
-    <div class="hs-num">200+</div>
+    <div class="hs-num" data-target="200" data-suffix="+">0</div>
     <div class="hs-label">Corporate Clients</div>
   </div>
   <div class="hero-stat">
-    <div class="hs-num">1M+</div>
-    <div class="hs-label">Happy Customers</div>
+    <div class="hs-num" data-target="1000000" data-suffix="+" data-display="M">0</div>
+    <div class="hs-label">Happy Consumers</div>
   </div>
   <div class="hero-stat">
-    <div class="hs-num">12+</div>
+    <div class="hs-num" data-target="12" data-suffix="+">0</div>
     <div class="hs-label">Years of Excellence</div>
   </div>
 </div>
+
+<script>
+  const counters = document.querySelectorAll('.hs-num[data-target]');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !entry.target.dataset.done) {
+        entry.target.dataset.done = true;
+        const target = +entry.target.dataset.target;
+        const suffix = entry.target.dataset.suffix || '';
+        const display = entry.target.dataset.display || '';
+        const duration = 1800;
+        const steps = 60;
+        const increment = target / steps;
+        let current = 0;
+        const timer = setInterval(() => {
+          current += increment;
+          if (current >= target) {
+            clearInterval(timer);
+            if (display === 'M') {
+              entry.target.textContent = '1 Million +';
+              entry.target.style.transition = 'transform 0.2s ease, color 0.2s ease';
+              entry.target.style.transform = 'scale(1.35)';
+              entry.target.style.color = '#fff';
+              setTimeout(() => {
+                entry.target.style.transform = 'scale(1)';
+                entry.target.style.color = '';
+              }, 400);
+            } else {
+              entry.target.textContent = Math.floor(target) + suffix;
+            }
+          } else {
+            entry.target.textContent = display === 'M'
+              ? Math.floor(current).toLocaleString()
+              : Math.floor(current) + suffix;
+          }
+        }, duration / steps);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  counters.forEach(counter => observer.observe(counter));
+</script>
+
 <!-- WHO WE ARE -->
 <section id="about">
   <div>
@@ -585,6 +813,69 @@ h1 { animation: fadeUp 0.6s 0.22s both; }
   </div>
 </section>
 
+<!-- BRANDS / CLIENTS -->
+<section id="clients">
+  <div class="clients-header">
+    <div class="section-tag">Our Clients</div>
+    <h2>Brands That Trust Us</h2>
+    <p class="clients-sub">Over 200 companies across India have chosen Blackthreads as their corporate gifting partner.</p>
+  </div>
+  <div class="marquee-wrap">
+    <div class="marquee-track">
+      <!-- Set 1 -->
+      <div class="brand-logo-card"><img src="KSEB.png" alt="KSEB Logo"></div>
+      <div class="brand-logo-card"><img src="SCMS.png" alt="SCMS Logo"></div>
+      <div class="brand-logo-card"><img src="IIMK.png" alt="IIMK Logo"></div>
+      <div class="brand-logo-card"><img src="UST Global.png" alt="UST Global Logo"></div>
+      <div class="brand-logo-card"><img src="Qburst.png" alt="Qburst Logo"></div>
+      <div class="brand-logo-card"><img src="Allianz.png" alt="Allianz Logo"></div>
+      <div class="brand-logo-card"><img src="Speridian.png" alt="Speridian Logo"></div>
+      <div class="brand-logo-card"><img src="Eureka Forbes.png" alt="Eureka Forbes Logo"></div>
+      <div class="brand-logo-card"><img src="SBI.png" alt="SBI Logo"></div>
+      <div class="brand-logo-card"><img src="PNB.png" alt="PNB Logo"></div>
+      <div class="brand-logo-card"><img src="Royal Enfield.png" alt="Royal Enfield Logo"></div>
+      <div class="brand-logo-card"><img src="Envestnet.png" alt="Envestnet Logo"></div>
+      <div class="brand-logo-card"><img src="MRF.png" alt="MRF Logo"></div>
+      <div class="brand-logo-card"><img src="Terumo.png" alt="Terumo Logo"></div>
+      <div class="brand-logo-card"><img src="Goethe.png" alt="Goethe Logo"></div>
+      <div class="brand-logo-card"><img src="Toonz.png" alt="Toonz Logo"></div>
+      <div class="brand-logo-card"><img src="icloud homes.png" alt="icloud homes Logo"></div>
+      <div class="brand-logo-card"><img src="Sun Homes.png" alt="Sun Homes Logo"></div>
+      <div class="brand-logo-card"><img src="Artech.png" alt="Artech Logo"></div>
+      <div class="brand-logo-card"><img src="Heather.png" alt="Heather Logo"></div>
+      <div class="brand-logo-card"><img src="Cordial.png" alt="Cordial Logo"></div>
+      <div class="brand-logo-card"><img src="Mindcurv.png" alt="Mindcurv Logo"></div>
+      <div class="brand-logo-card"><img src="GOK.png" alt="GOK Logo"></div>
+      <div class="brand-logo-card"><img src="IIMB.png" alt="IIMB Logo"></div>
+      <!-- Set 2 — exact duplicate for seamless loop -->
+      <div class="brand-logo-card"><img src="KSEB.png" alt="KSEB Logo"></div>
+      <div class="brand-logo-card"><img src="SCMS.png" alt="SCMS Logo"></div>
+      <div class="brand-logo-card"><img src="IIMK.png" alt="IIMK Logo"></div>
+      <div class="brand-logo-card"><img src="UST Global.png" alt="UST Global Logo"></div>
+      <div class="brand-logo-card"><img src="Qburst.png" alt="Qburst Logo"></div>
+      <div class="brand-logo-card"><img src="Allianz.png" alt="Allianz Logo"></div>
+      <div class="brand-logo-card"><img src="Speridian.png" alt="Speridian Logo"></div>
+      <div class="brand-logo-card"><img src="Eureka Forbes.png" alt="Eureka Forbes Logo"></div>
+      <div class="brand-logo-card"><img src="SBI.png" alt="SBI Logo"></div>
+      <div class="brand-logo-card"><img src="PNB.png" alt="PNB Logo"></div>
+      <div class="brand-logo-card"><img src="Royal Enfield.png" alt="Royal Enfield Logo"></div>
+      <div class="brand-logo-card"><img src="Envestnet.png" alt="Envestnet Logo"></div>
+      <div class="brand-logo-card"><img src="MRF.png" alt="MRF Logo"></div>
+      <div class="brand-logo-card"><img src="Terumo.png" alt="Terumo Logo"></div>
+      <div class="brand-logo-card"><img src="Goethe.png" alt="Goethe Logo"></div>
+      <div class="brand-logo-card"><img src="Toonz.png" alt="Toonz Logo"></div>
+      <div class="brand-logo-card"><img src="icloud homes.png" alt="icloud homes Logo"></div>
+      <div class="brand-logo-card"><img src="Sun Homes.png" alt="Sun Homes Logo"></div>
+      <div class="brand-logo-card"><img src="Artech.png" alt="Artech Logo"></div>
+      <div class="brand-logo-card"><img src="Heather.png" alt="Heather Logo"></div>
+      <div class="brand-logo-card"><img src="Cordial.png" alt="Cordial Logo"></div>
+      <div class="brand-logo-card"><img src="Mindcurv.png" alt="Mindcurv Logo"></div>
+      <div class="brand-logo-card"><img src="GOK.png" alt="GOK Logo"></div>
+      <div class="brand-logo-card"><img src="IIMB.png" alt="IIMB Logo"></div>
+    </div>
+  </div>
+</section>
+
 <!-- CONTACT -->
 <section id="contact">
   <div class="section-tag">Reach Out</div>
@@ -595,22 +886,35 @@ h1 { animation: fadeUp 0.6s 0.22s both; }
       <div class="co-row"><div class="co-type">Registered Office · Kerala</div><div class="co-val">Building No.24/283, Nikunjam, Alummoodu Jn,<br>Neyyattinkara, Trivandrum, Kerala – 695121</div></div>
       <div class="co-row"><div class="co-type">Manufacturing Unit · Tiruppur</div><div class="co-val">No.2, College Road, Rayapuram,<br>Tiruppur, Tamil Nadu – 641601</div></div>
       <div class="co-row"><div class="co-type">Sales Office · Trivandrum</div><div class="co-val">B6, A Block, Alsa Springfields Apartment,<br>Vazhuthacaud, Trivandrum, Kerala – 695014</div></div>
-      <div class="co-row"><div class="co-type">Email</div><div class="co-val"><a href="mailto:team@blackthreads.in">team@blackthreads.in</a></div></div>
+      <div class="co-row"><div class="co-type">Email</div><div class="co-val"><a href="/cdn-cgi/l/email-protection#ee87808881ae8c828f8d859a869c8b8f8a9dc08780"><span class="__cf_email__" data-cfemail="d6bfb8b0b996b4bab7b5bda2bea4b3b7b2a5f8bfb8">[email&#160;protected]</span></a></div></div>
       <div class="co-row"><div class="co-type">Contact Number</div><div class="co-val">1234567890</div></div>
     </div>
-    <div class="contact-form">
+    <form class="contact-form" action="https://formspree.io/f/teams@blackthreads.in" method="POST" id="enquiry-form">
+      <!-- Formspree redirect back to same page after submit -->
+      <input type="hidden" name="_next" value="?sent=true">
+      <input type="hidden" name="_subject" value="New Enquiry from Blackthreads Website">
       <div class="form-row">
-        <div class="form-group"><label class="form-label">Your Name</label><input type="text" class="form-input" placeholder="Full name"></div>
-        <div class="form-group"><label class="form-label">Company</label><input type="text" class="form-input" placeholder="Company name"></div>
+        <div class="form-group"><label class="form-label">Your Name <span class="req-star">*</span></label><input type="text" name="name" class="form-input" placeholder="Full name" required></div>
+        <div class="form-group"><label class="form-label">Company <span class="req-star">*</span></label><input type="text" name="company" class="form-input" placeholder="Company name" required></div>
       </div>
       <div class="form-row">
-        <div class="form-group"><label class="form-label">Email</label><input type="email" class="form-input" placeholder="you@company.com"></div>
-        <div class="form-group"><label class="form-label">Phone</label><input type="tel" class="form-input" placeholder="+91 00000 00000"></div>
+        <div class="form-group"><label class="form-label">Email <span class="req-star">*</span></label><input type="email" name="email" class="form-input" placeholder="you@company.com" required></div>
+        <div class="form-group"><label class="form-label">Phone <span class="req-star">*</span></label><input type="tel" name="phone" class="form-input" placeholder="+91 00000 00000" required pattern="[0-9+\s\-]{7,15}" title="Please enter a valid phone number"></div>
       </div>
-      <div class="form-group"><label class="form-label">Product Interest</label><input type="text" class="form-input" placeholder="e.g. T-shirts, Gift Hampers, Caps…"></div>
-      <div class="form-group"><label class="form-label">Message</label><textarea class="form-input" placeholder="Tell us about your requirements, quantity, timeline…"></textarea></div>
-      <button class="form-submit" onclick="alert('Thank you! We will get back to you shortly.')">Send Enquiry →</button>
-    </div>
+      <div class="form-group"><label class="form-label">Product Interest <span class="req-star">*</span></label><input type="text" name="product_interest" class="form-input" placeholder="e.g. T-shirts, Gift Hampers, Caps…" required></div>
+      <div class="form-group"><label class="form-label">Message</label><textarea name="message" class="form-input" placeholder="Tell us about your requirements, quantity, timeline…"></textarea></div>
+      <div id="form-success" style="display:none; background:#e8f5e9; border:1px solid #a5d6a7; border-radius:7px; padding:14px 18px; font-size:0.88rem; color:#2e7d32; font-weight:600;">
+        ✅ Thank you! Your enquiry has been sent. We'll get back to you shortly.
+      </div>
+      <button type="submit" class="form-submit">Send Enquiry →</button>
+    </form>
+    <script>
+      // Show success message if redirected back after submission
+      if(window.location.search.includes('sent=true')) {
+        document.getElementById('form-success').style.display = 'block';
+        document.getElementById('enquiry-form').style.display = 'none';
+      }
+    </script>
   </div>
 </section>
 
