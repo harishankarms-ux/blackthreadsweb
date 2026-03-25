@@ -48,7 +48,7 @@ nav {
   letter-spacing: 0.08em; text-transform: uppercase;
   color: var(--grey-mid); transition: color 0.2s;
 }
-.nav-links a:hover { color: var(--charcoal); }
+.nav-links a:hover { color: var(--yellow); }
 .nav-cta {
   background: var(--yellow); color: var(--charcoal);
   padding: 10px 26px; font-family: 'Raleway', sans-serif;
@@ -91,7 +91,7 @@ nav {
   font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em;
   text-transform: uppercase; margin-bottom: 28px;
 }
-.hero-badge::before { content: '●'; font-size: 0.45rem; }
+.hero-badge::before { content: ''; font-size: 0.45rem; }
 h1 {
   font-family: 'Raleway', sans-serif;
   font-size: clamp(2.8rem, 5.5vw, 4.8rem);
@@ -121,24 +121,27 @@ h1 em { color: var(--yellow); font-style: normal; }
 }
 .btn-ghost:hover { border-color: var(--white); transform: translateY(-2px); }
 
-.hero-stats {
-  position: absolute; bottom: 0; left: 0; right: 0; z-index: 2;
+/* STATS STRIP */
+#stats-strip {
+  background: var(--charcoal);
   display: flex;
-  background: rgba(20,20,20,0.75);
-  backdrop-filter: blur(10px);
-  border-top: 2px solid var(--yellow);
+  border-bottom: 3px solid var(--yellow);
+  padding: 0;
 }
 .hero-stat {
-  flex: 1; padding: 22px 40px;
+  flex: 1; padding: 36px 20px;
   border-right: 1px solid rgba(255,255,255,0.1);
-  display: flex; align-items: center; gap: 16px;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center; gap: 6px;
 }
 .hero-stat:last-child { border-right: none; }
 .hs-num {
   font-family: 'Raleway', sans-serif;
-  font-size: 2rem; font-weight: 900; color: var(--yellow); line-height: 1;
+  font-size: 2.4rem; font-weight: 900; color: var(--yellow); line-height: 1;
 }
-.hs-label { font-size: 0.75rem; color: rgba(255,255,255,0.55); line-height: 1.4; }
+.hs-label { font-size: 0.78rem; color: rgba(255,255,255,0.5); line-height: 1.4; letter-spacing: 0.04em; }
+
 
 /* SECTION COMMONS */
 section { padding: 96px 60px; }
@@ -176,7 +179,7 @@ h2 {
 }
 .since-year {
   font-family: 'Raleway', sans-serif; font-size: 6rem; font-weight: 900;
-  color: rgba(255,255,255,0.05); line-height: 1; margin-bottom: 8px;
+  color: rgba(255, 255, 255, 0.091); line-height: 1; margin-bottom: 8px;
 }
 .since-label {
   font-family: 'Raleway', sans-serif; font-size: 1.35rem; font-weight: 800;
@@ -388,7 +391,6 @@ h1 { animation: fadeUp 0.6s 0.22s both; }
   .contact-grid { grid-template-columns: 1fr; gap: 48px; }
   footer { flex-direction: column; gap: 16px; text-align: center; }
   .footer-links { justify-content: center; }
-  .hero-stats { position: static; margin-top: 48px; }
 }
 @media (max-width: 640px) {
   nav { padding: 0 20px; }
@@ -401,7 +403,9 @@ h1 { animation: fadeUp 0.6s 0.22s both; }
   .form-row { grid-template-columns: 1fr; }
   .cat-header { flex-direction: column; align-items: flex-start; gap: 10px; }
   .cat-header-right { text-align: left; }
-  .hero-stats { flex-direction: column; }
+  #stats-strip { flex-direction: column; }
+  .hero-stat { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); padding: 28px 20px; }
+  .hero-stat:last-child { border-bottom: none; }
   footer { padding: 28px 20px; }
 }
 </style>
@@ -434,19 +438,23 @@ h1 { animation: fadeUp 0.6s 0.22s both; }
       <a href="#contact" class="btn-ghost">Request a Quote</a>
     </div>
   </div>
-  <div class="hero-stats">
-    <div class="hero-stat">
-      <div><div class="hs-num">200+</div><div class="hs-label">Corporate Clients</div></div>
-    </div>
-    <div class="hero-stat">
-      <div><div class="hs-num">1M+</div><div class="hs-label">Happy Customers</div></div>
-    </div>
-    <div class="hero-stat">
-      <div><div class="hs-num">12+</div><div class="hs-label">Years of Excellence</div></div>
-    </div>
-  </div>
 </section>
 
+<!-- STATS STRIP -->
+<div id="stats-strip">
+  <div class="hero-stat">
+    <div class="hs-num">200+</div>
+    <div class="hs-label">Corporate Clients</div>
+  </div>
+  <div class="hero-stat">
+    <div class="hs-num">1M+</div>
+    <div class="hs-label">Happy Customers</div>
+  </div>
+  <div class="hero-stat">
+    <div class="hs-num">12+</div>
+    <div class="hs-label">Years of Excellence</div>
+  </div>
+</div>
 <!-- WHO WE ARE -->
 <section id="about">
   <div>
@@ -454,7 +462,7 @@ h1 { animation: fadeUp 0.6s 0.22s both; }
     <h2>A Gifting Partner<br>You Can Trust</h2>
     <div class="about-body">
       <p>Blackthreads is a premier corporate gifting company with over a decade of experience partnering with India's leading corporations. Since 2013, we have proudly served 200+ clients and touched over a million customers with gifts that make a lasting impact.</p>
-      <p>We bring together design expertise, cutting-edge printing technology, and a vast product network to deliver branded gifts that go beyond the ordinary — tailored to your brand, delivered at scale.</p>
+      <p>We bring together design expertise, cutting-edge printing technology, and a vast product network to deliver branded gifts that go beyond the ordinary tailored to your brand, delivered at scale.</p>
       <p>Every gift is a brand story. We tell it beautifully.</p>
     </div>
   </div>
@@ -480,56 +488,56 @@ h1 { animation: fadeUp 0.6s 0.22s both; }
       <div class="section-tag">Our Catalogue</div>
       <h2>Product Categories</h2>
     </div>
-    <div class="cat-header-right">A complete range of branded corporate gifts — from wearables to tech to wellness.</div>
+    <div class="cat-header-right">A complete range of branded corporate gifts from wearables to tech to wellness.</div>
   </div>
   <div class="upload-hint">📸 &nbsp;Product images will appear here — simply send us your 12 category images and we'll place them in the grid below.</div>
   <div class="cat-grid">
     <div class="cat-card">
-      <div class="cat-img-wrap"><span class="cat-placeholder">👕</span></div>
+      <div class="cat-img-wrap"><img src="Roundneck Tshirt.jpg" alt="Round Neck T-Shirts"></div>
       <div class="cat-body"><span class="cat-num">01</span><div class="cat-name">Round Neck T-Shirts</div><div class="cat-desc">Classic team &amp; event tees</div></div>
     </div>
     <div class="cat-card">
-      <div class="cat-img-wrap"><span class="cat-placeholder">👔</span></div>
+      <div class="cat-img-wrap"><img src="Collar Tshirt.jpg" alt="Collar Tshirt"></div>
       <div class="cat-body"><span class="cat-num">02</span><div class="cat-name">Collar T-Shirts</div><div class="cat-desc">Polo &amp; formal styles</div></div>
     </div>
     <div class="cat-card">
-      <div class="cat-img-wrap"><span class="cat-placeholder">🧥</span></div>
+      <div class="cat-img-wrap"><img src="Hoodie.jpg" alt="Jackets & Zippers"></div>
       <div class="cat-body"><span class="cat-num">03</span><div class="cat-name">Jackets &amp; Zippers</div><div class="cat-desc">Premium corporate outerwear</div></div>
     </div>
     <div class="cat-card">
-      <div class="cat-img-wrap"><span class="cat-placeholder">🧢</span></div>
+      <div class="cat-img-wrap"><img src="Cap.jpg" alt="Caps & Hats"></div>
       <div class="cat-body"><span class="cat-num">04</span><div class="cat-name">Caps &amp; Hats</div><div class="cat-desc">Branded event headgear</div></div>
     </div>
     <div class="cat-card">
-      <div class="cat-img-wrap"><span class="cat-placeholder">🍶</span></div>
+      <div class="cat-img-wrap"><img src="Bottles.jpg" alt="Bottles & Mugs"></div>
       <div class="cat-body"><span class="cat-num">05</span><div class="cat-name">Bottles &amp; Mugs</div><div class="cat-desc">Desk &amp; wellness essentials</div></div>
     </div>
     <div class="cat-card">
-      <div class="cat-img-wrap"><span class="cat-placeholder">🎧</span></div>
+      <div class="cat-img-wrap"><img src="Speaker.jpg" alt="Speakers & Earphones"></div>
       <div class="cat-body"><span class="cat-num">06</span><div class="cat-name">Speakers &amp; Earphones</div><div class="cat-desc">Bluetooth audio gifts</div></div>
     </div>
     <div class="cat-card">
-      <div class="cat-img-wrap"><span class="cat-placeholder">💾</span></div>
+      <div class="cat-img-wrap"><img src="PenDrive.jpg" alt="Powerbanks & Pendrives"></div>
       <div class="cat-body"><span class="cat-num">07</span><div class="cat-name">PenDrives &amp; Powerbanks</div><div class="cat-desc">Everyday branded tech</div></div>
     </div>
     <div class="cat-card">
-      <div class="cat-img-wrap"><span class="cat-placeholder">☂️</span></div>
+      <div class="cat-img-wrap"><img src="Umbrellas.jpg" alt="Umbrellas & Rainwear"></div>
       <div class="cat-body"><span class="cat-num">08</span><div class="cat-name">Umbrellas &amp; Rainwear</div><div class="cat-desc">All-weather branded gear</div></div>
     </div>
     <div class="cat-card">
-      <div class="cat-img-wrap"><span class="cat-placeholder">🎁</span></div>
+      <div class="cat-img-wrap"><img src="Gift Boxes.jpg" alt="Gift Hampers & Boxes"></div>
       <div class="cat-body"><span class="cat-num">09</span><div class="cat-name">Gift Hampers &amp; Boxes</div><div class="cat-desc">Curated premium sets</div></div>
     </div>
     <div class="cat-card">
-      <div class="cat-img-wrap"><span class="cat-placeholder">⌚</span></div>
+      <div class="cat-img-wrap"><img src="Smart watch.jpg" alt="Smartwatches"></div>
       <div class="cat-body"><span class="cat-num">10</span><div class="cat-name">Smartwatches</div><div class="cat-desc">Corporate tech wearables</div></div>
     </div>
     <div class="cat-card">
-      <div class="cat-img-wrap"><span class="cat-placeholder">🏃</span></div>
+      <div class="cat-img-wrap"><img src="Fitness Tracker.jpg" alt="Fitness Trackers"></div>
       <div class="cat-body"><span class="cat-num">11</span><div class="cat-name">Fitness Trackers</div><div class="cat-desc">Health &amp; wellness gifts</div></div>
     </div>
     <div class="cat-card" style="border-color:var(--yellow);background:rgba(245,197,24,0.04);">
-      <div class="cat-img-wrap" style="background:rgba(245,197,24,0.08);"><span class="cat-placeholder">✨</span></div>
+      <div class="cat-img-wrap" style="background:rgba(245,197,24,0.08);"><img src="Custom Solutions.png" alt="Custom Solutions"></div>
       <div class="cat-body"><span class="cat-num" style="color:var(--charcoal);">+</span><div class="cat-name" style="color:var(--yellow-dark);">Custom Solutions</div><div class="cat-desc">Tell us what you need</div></div>
     </div>
   </div>
