@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog | Blackthreads — Corporate Gifting Insights & Tips</title>
+<meta name="description" content="Read Blackthreads' blog for corporate gifting tips, branding ideas, printing guides, and merchandise inspiration for businesses across India.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.blackthreads.in/blog.html">
+<meta property="og:title" content="Blackthreads Blog — Corporate Gifting Insights">
+<meta property="og:description" content="Tips, guides and ideas for corporate gifting, branded merchandise and promotional products from Blackthreads.">
+<meta property="og:url" content="https://www.blackthreads.in/blog.html">
+<meta property="og:type" content="website">
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700;800;900&family=Nunito+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --yellow: #f5c518; --yellow-dark: #d4a800; --yellow-light: #fff3b0;
+  --charcoal: #2b2b2b; --grey-dark: #3d3d3d; --grey-mid: #6b6b6b;
+  --grey-light: #c8c8c8; --grey-bg: #f2f2f2; --grey-card: #e8e8e8;
+  --white: #ffffff; --text: #1e1e1e; --light-border: #e4e8f0;
+}
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+body { font-family:'Nunito Sans',sans-serif; background:var(--white); color:var(--text); overflow-x:hidden; }
+
+/* NAV */
+nav { position:fixed; top:0; left:0; width:100%; z-index:200; background:rgba(255,255,255,0.97); backdrop-filter:blur(16px); border-bottom:2px solid var(--yellow); display:flex; align-items:center; justify-content:space-between; padding:0 60px; height:70px; }
+.logo-img { height:25px; width:auto; object-fit:contain; filter:brightness(0); }
+.nav-links { display:flex; gap:32px; list-style:none; }
+.nav-links a { text-decoration:none; font-size:0.8rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--grey-mid); transition:color 0.2s; }
+.nav-links a:hover, .nav-links a.active { color:var(--yellow); }
+.nav-cta { background:var(--yellow); color:var(--charcoal); padding:10px 26px; font-family:'Raleway',sans-serif; font-size:0.78rem; font-weight:800; letter-spacing:0.08em; text-transform:uppercase; text-decoration:none; border-radius:3px; transition:background 0.2s, transform 0.2s; }
+.nav-cta:hover { background:var(--yellow-dark); transform:translateY(-1px); }
+.hamburger { display:none; flex-direction:column; justify-content:center; gap:5px; cursor:pointer; padding:4px; background:none; border:none; z-index:300; }
+.hamburger span { display:block; width:24px; height:2px; background:var(--charcoal); border-radius:2px; transition:transform 0.3s, opacity 0.3s; }
+.hamburger.open span:nth-child(1) { transform:translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity:0; }
+.hamburger.open span:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
+.mobile-menu { display:none; position:fixed; top:70px; left:0; right:0; background:var(--white); border-top:2px solid var(--yellow); border-bottom:1px solid var(--light-border); z-index:199; flex-direction:column; padding:12px 0 20px; box-shadow:0 8px 24px rgba(0,0,0,0.1); }
+.mobile-menu.open { display:flex; }
+.mobile-menu a { text-decoration:none; font-size:0.88rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--grey-mid); padding:14px 28px; border-bottom:1px solid var(--light-border); transition:color 0.2s, background 0.2s; }
+.mobile-menu a.mobile-cta { margin:16px 28px 0; background:var(--yellow); color:var(--charcoal); border-bottom:none; border-radius:4px; text-align:center; padding:14px 28px; }
+
+/* BLOG HERO */
+.blog-hero {
+  background: var(--charcoal); padding: 140px 60px 80px;
+  position: relative; overflow: hidden;
+}
+.blog-hero::after {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse 60% 80% at 80% 50%, rgba(245,197,24,0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+.blog-hero-inner { position: relative; z-index: 1; max-width: 680px; }
+.blog-hero-tag {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(245,197,24,0.15); border: 1px solid rgba(245,197,24,0.4);
+  color: var(--yellow); padding: 5px 14px; border-radius: 100px;
+  font-size: 0.68rem; font-weight: 700; letter-spacing: 0.12em;
+  text-transform: uppercase; margin-bottom: 20px;
+}
+.blog-hero h1 {
+  font-family: 'Raleway', sans-serif; font-size: clamp(2.2rem, 4vw, 3.4rem);
+  font-weight: 900; color: var(--white); line-height: 1.1;
+  letter-spacing: -0.02em; margin-bottom: 16px;
+}
+.blog-hero h1 em { color: var(--yellow); font-style: normal; }
+.blog-hero p { font-size: 1rem; color: rgba(255,255,255,0.55); line-height: 1.8; max-width: 480px; }
+
+/* FILTER TABS */
+.blog-filters {
+  background: var(--white); padding: 24px 60px;
+  border-bottom: 1px solid var(--grey-card);
+  display: flex; gap: 8px; flex-wrap: wrap; align-items: center;
+  position: sticky; top: 70px; z-index: 100;
+}
+.filter-label { font-size: 0.72rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--grey-mid); margin-right: 8px; }
+.filter-btn {
+  padding: 7px 18px; border-radius: 100px; border: 1.5px solid var(--grey-card);
+  background: var(--white); font-family: 'Nunito Sans', sans-serif;
+  font-size: 0.78rem; font-weight: 600; color: var(--grey-mid);
+  cursor: pointer; transition: all 0.2s;
+}
+.filter-btn:hover, .filter-btn.active { background: var(--yellow); border-color: var(--yellow); color: var(--charcoal); font-weight: 800; }
+
+/* BLOG GRID */
+.blog-main { padding: 60px 60px 96px; }
+.featured-post {
+  background: var(--grey-bg); border: 2px solid transparent;
+  border-radius: 16px; overflow: hidden;
+  display: grid; grid-template-columns: 1.2fr 1fr; gap: 0;
+  margin-bottom: 48px;
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+.featured-post:hover { border-color: var(--yellow); box-shadow: 0 12px 40px rgba(0,0,0,0.1); }
+.featured-img {
+  background: linear-gradient(135deg, var(--charcoal) 0%, #444 100%);
+  min-height: 320px; display: flex; align-items: center; justify-content: center;
+  font-size: 5rem; position: relative; overflow: hidden;
+}
+.featured-badge {
+  position: absolute; top: 20px; left: 20px;
+  background: var(--yellow); color: var(--charcoal);
+  padding: 5px 12px; border-radius: 100px;
+  font-size: 0.65rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase;
+}
+.featured-body { padding: 44px 40px; display: flex; flex-direction: column; justify-content: center; }
+.featured-tag { font-size: 0.65rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--yellow-dark); margin-bottom: 12px; display: block; }
+.featured-title { font-family: 'Raleway', sans-serif; font-size: 1.5rem; font-weight: 900; color: var(--charcoal); line-height: 1.25; margin-bottom: 14px; text-decoration: none; display: block; transition: color 0.2s; }
+.featured-title:hover { color: var(--yellow-dark); }
+.featured-excerpt { font-size: 0.9rem; color: var(--grey-mid); line-height: 1.75; margin-bottom: 24px; }
+.featured-meta { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+.featured-date { font-size: 0.75rem; color: var(--grey-light); font-weight: 600; }
+.btn-read {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--charcoal); color: var(--white);
+  padding: 11px 24px; border-radius: 4px;
+  font-family: 'Raleway', sans-serif; font-size: 0.78rem; font-weight: 800;
+  text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase;
+  transition: background 0.2s, transform 0.2s;
+}
+.btn-read:hover { background: var(--yellow); color: var(--charcoal); transform: translateY(-2px); }
+
+/* POSTS GRID */
+.posts-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.post-card { background: var(--white); border: 2px solid var(--grey-card); border-radius: 14px; overflow: hidden; transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s; display: flex; flex-direction: column; }
+.post-card:hover { border-color: var(--yellow); transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.08); }
+.post-img { aspect-ratio: 16/9; display: flex; align-items: center; justify-content: center; font-size: 3rem; }
+.post-body { padding: 22px; flex: 1; display: flex; flex-direction: column; }
+.post-tag { font-size: 0.63rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--yellow-dark); margin-bottom: 8px; display: block; }
+.post-title { font-family: 'Raleway', sans-serif; font-size: 0.95rem; font-weight: 800; color: var(--charcoal); line-height: 1.35; margin-bottom: 10px; text-decoration: none; display: block; transition: color 0.2s; flex: 1; }
+.post-title:hover { color: var(--yellow-dark); }
+.post-excerpt { font-size: 0.8rem; color: var(--grey-mid); line-height: 1.65; margin-bottom: 16px; }
+.post-footer { display: flex; align-items: center; justify-content: space-between; padding-top: 14px; border-top: 1px solid var(--grey-card); }
+.post-date { font-size: 0.7rem; color: var(--grey-light); font-weight: 600; }
+.post-read { font-size: 0.7rem; font-weight: 800; color: var(--yellow-dark); text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; transition: color 0.2s; }
+.post-read:hover { color: var(--charcoal); }
+
+/* NEWSLETTER */
+.newsletter-bar {
+  background: var(--charcoal); padding: 56px 60px;
+  display: flex; align-items: center; justify-content: space-between; gap: 40px;
+  border-top: 3px solid var(--yellow);
+}
+.newsletter-text h3 { font-family: 'Raleway', sans-serif; font-size: 1.4rem; font-weight: 900; color: var(--white); margin-bottom: 8px; }
+.newsletter-text p { font-size: 0.88rem; color: rgba(255,255,255,0.5); line-height: 1.6; }
+.newsletter-form { display: flex; gap: 10px; flex-shrink: 0; }
+.newsletter-input { background: rgba(255,255,255,0.08); border: 1.5px solid rgba(255,255,255,0.15); border-radius: 6px; padding: 12px 18px; font-family: 'Nunito Sans', sans-serif; font-size: 0.9rem; color: var(--white); outline: none; width: 280px; transition: border-color 0.2s; }
+.newsletter-input::placeholder { color: rgba(255,255,255,0.3); }
+.newsletter-input:focus { border-color: var(--yellow); }
+.newsletter-btn { background: var(--yellow); color: var(--charcoal); border: none; cursor: pointer; padding: 12px 24px; font-family: 'Raleway', sans-serif; font-size: 0.8rem; font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; border-radius: 6px; transition: background 0.2s; white-space: nowrap; }
+.newsletter-btn:hover { background: var(--yellow-dark); }
+
+/* FOOTER */
+footer { background: var(--charcoal); padding: 36px 60px; display: flex; align-items: center; justify-content: space-between; }
+.footer-logo-img { height: 25px; width: auto; object-fit: contain; filter: brightness(0) invert(1); }
+.footer-links { display: flex; gap: 24px; }
+.footer-links a { font-size: 0.74rem; color: rgba(255,255,255,0.4); text-decoration: none; font-weight: 700; letter-spacing: 0.08em; transition: color 0.2s; }
+.footer-links a:hover { color: var(--yellow); }
+.footer-copy { font-size: 0.76rem; color: rgba(255,255,255,0.3); }
+
+/* WHATSAPP */
+.wa-widget { position:fixed; bottom:28px; right:28px; z-index:9999; display:flex; flex-direction:column; align-items:flex-end; gap:10px; }
+.wa-btn { width:58px; height:58px; border-radius:50%; background:#25D366; border:none; cursor:pointer; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 20px rgba(37,211,102,0.45); transition:transform 0.2s; }
+.wa-btn:hover { transform:scale(1.08); }
+.wa-btn svg { width:30px; height:30px; }
+
+/* RESPONSIVE */
+@media (max-width: 1080px) {
+  nav { padding: 0 32px; }
+  .blog-hero { padding: 120px 32px 60px; }
+  .blog-filters { padding: 20px 32px; }
+  .blog-main { padding: 48px 32px 80px; }
+  .featured-post { grid-template-columns: 1fr; }
+  .featured-img { min-height: 200px; }
+  .posts-grid { grid-template-columns: repeat(2, 1fr); }
+  .newsletter-bar { flex-direction: column; align-items: flex-start; padding: 48px 32px; }
+  footer { flex-direction: column; gap: 16px; text-align: center; padding: 32px; }
+  .footer-links { justify-content: center; }
+}
+@media (max-width: 640px) {
+  nav { padding: 0 20px; }
+  .nav-links { display: none; }
+  .nav-cta { display: none; }
+  .hamburger { display: flex; }
+  .blog-hero { padding: 100px 20px 48px; }
+  .blog-filters { padding: 16px 20px; top: 70px; }
+  .blog-main { padding: 32px 20px 64px; }
+  .posts-grid { grid-template-columns: 1fr; }
+  .newsletter-form { flex-direction: column; width: 100%; }
+  .newsletter-input { width: 100%; }
+  .wa-widget { bottom: 16px; right: 16px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html"><img src="Blackthreads Logo Black.png" alt="Blackthreads Logo" class="logo-img"></a>
+  <ul class="nav-links">
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#categories">Products</a></li>
+    <li><a href="index.html#printing">Printing</a></li>
+    <li><a href="index.html#whatwedo">Services</a></li>
+    <li><a href="index.html#clients">Clients</a></li>
+    <li><a href="index.html#faq">FAQ</a></li>
+    <li><a href="blog.html" class="active">Blog</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+  <a href="index.html#contact" class="nav-cta">Get a Quote</a>
+  <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="index.html#about" onclick="closeMenu()">About</a>
+  <a href="index.html#categories" onclick="closeMenu()">Products</a>
+  <a href="index.html#printing" onclick="closeMenu()">Printing</a>
+  <a href="index.html#whatwedo" onclick="closeMenu()">Services</a>
+  <a href="index.html#clients" onclick="closeMenu()">Clients</a>
+  <a href="index.html#faq" onclick="closeMenu()">FAQ</a>
+  <a href="blog.html" onclick="closeMenu()">Blog</a>
+  <a href="index.html#contact" class="mobile-cta" onclick="closeMenu()">Get a Quote</a>
+</div>
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  hamburger.addEventListener('click', () => { hamburger.classList.toggle('open'); mobileMenu.classList.toggle('open'); });
+  function closeMenu() { hamburger.classList.remove('open'); mobileMenu.classList.remove('open'); }
+</script>
+
+<!-- BLOG HERO -->
+<div class="blog-hero">
+  <div class="blog-hero-inner">
+    <div class="blog-hero-tag">Blackthreads Blog</div>
+    <h1>Corporate Gifting<br><em>Insights & Ideas</em></h1>
+    <p>Tips, guides and inspiration for businesses looking to make a lasting impression with branded merchandise and corporate gifting.</p>
+  </div>
+</div>
+
+<!-- FILTER TABS -->
+<div class="blog-filters">
+  <span class="filter-label">Filter:</span>
+  <button class="filter-btn active">All</button>
+  <button class="filter-btn">Corporate Gifting</button>
+  <button class="filter-btn">Apparel</button>
+  <button class="filter-btn">Printing</button>
+  <button class="filter-btn">Tech Gifts</button>
+  <button class="filter-btn">Hampers</button>
+</div>
+<script>
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    });
+  });
+</script>
+
+<!-- BLOG MAIN -->
+<div class="blog-main">
+
+  <!-- FEATURED POST -->
+  <article class="featured-post">
+    <div class="featured-img">
+      <div class="featured-badge">Featured</div>
+        <img src="Top 10 Corporate Gift Ideas for Diwali 2026.png" alt="Top 10 Corporate Gift Ideas for Diwali 2026" 
+        style="width:100%;height:100%;object-fit:cover;">
+      </div>
+    <div class="featured-body">
+      <span class="featured-tag">Corporate Gifting</span>
+      <a href="blog-post.html" class="featured-title">Top 10 Corporate Gift Ideas for Diwali 2026 That Will Make Your Brand Unforgettable</a>
+      <p class="featured-excerpt">Diwali is the biggest corporate gifting season in India. But generic gift boxes no longer impress clients and employees. Here are the top 10 ideas that combine brand visibility with genuine value — from premium hampers to branded tech.</p>
+      <div class="featured-meta">
+        <span class="featured-date">July 15, 2026</span>
+        <a href="blog-post.html" class="btn-read">Read Article →</a>
+      </div>
+    </div>
+  </article>
+
+  <!-- POSTS GRID -->
+  <div class="posts-grid">
+
+    <article class="post-card">
+      <div class="post-img" style="padding:0;">
+        <img src="How to Choose the Right Corporate T-Shirt.png" alt="How to Choose the Right Corporate T-Shirt" 
+          style="width:100%;height:100%;object-fit:cover;">
+      </div>
+      <div class="post-body">
+        <span class="post-tag">Apparel</span>
+        <a href="blog-post.html" class="post-title">How to Choose the Right Corporate T-Shirt for Your Brand</a>
+        <p class="post-excerpt">GSM, fabric type, printing method — a complete guide before ordering branded T-shirts for your team or event.</p>
+        <div class="post-footer">
+          <span class="post-date">June 28, 2026</span>
+          <a href="blog-post.html" class="post-read">Read →</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="post-card">
+      <div class="post-img" style="padding:0;">
+        <img src="Screen Printing vs Embroidery.png" alt="Screen Printing vs Embroidery" 
+          style="width:100%;height:100%;object-fit:cover;">
+      </div>
+      <div class="post-body">
+        <span class="post-tag">Printing</span>
+        <a href="blog-post.html" class="post-title">Screen Printing vs Embroidery — Which is Right for Your Corporate Gift?</a>
+        <p class="post-excerpt">A complete comparison of two popular branding techniques to help you decide what works best for your merchandise.</p>
+        <div class="post-footer">
+          <span class="post-date">June 10, 2026</span>
+          <a href="blog-post.html" class="post-read">Read →</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="post-card">
+      <div class="post-img" style="background:linear-gradient(135deg,#1e4a1e,#2d7a2d);">🌿</div>
+      <div class="post-body">
+        <span class="post-tag">Trends</span>
+        <a href="blog-post.html" class="post-title">Why Eco-Friendly Corporate Gifts Are the Future of Brand Gifting in India</a>
+        <p class="post-excerpt">Sustainable merchandise is no longer a niche — it's what modern Indian companies are demanding. Here's why and how.</p>
+        <div class="post-footer">
+          <span class="post-date">May 22, 2026</span>
+          <a href="blog-post.html" class="post-read">Read →</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="post-card">
+      <div class="post-img" style="background:linear-gradient(135deg,#4a1a6a,#7a2ab0);">⌚</div>
+      <div class="post-body">
+        <span class="post-tag">Tech Gifts</span>
+        <a href="blog-post.html" class="post-title">Best Tech Corporate Gifts Under ₹1000 for Bulk Orders in 2026</a>
+        <p class="post-excerpt">Power banks, earbuds, smartwatches — premium tech gifts that fit any budget and leave a lasting impression.</p>
+        <div class="post-footer">
+          <span class="post-date">May 5, 2026</span>
+          <a href="blog-post.html" class="post-read">Read →</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="post-card">
+      <div class="post-img" style="background:linear-gradient(135deg,#6a2a00,#b04a00);">📦</div>
+      <div class="post-body">
+        <span class="post-tag">Hampers</span>
+        <a href="blog-post.html" class="post-title">How to Build the Perfect Corporate Gift Hamper for Any Occasion</a>
+        <p class="post-excerpt">From employee onboarding to client appreciation — how to curate gift hampers that people actually love to receive.</p>
+        <div class="post-footer">
+          <span class="post-date">April 18, 2026</span>
+          <a href="blog-post.html" class="post-read">Read →</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="post-card">
+      <div class="post-img" style="background:linear-gradient(135deg,#0a2a4a,#1a4a7a);">🏭</div>
+      <div class="post-body">
+        <span class="post-tag">About Us</span>
+        <a href="blog-post.html" class="post-title">Why Tiruppur is India's Corporate Apparel Capital — And Why It Matters</a>
+        <p class="post-excerpt">Our manufacturing hub in Tiruppur gives us a quality and pricing edge that most corporate gifting companies can't match.</p>
+        <div class="post-footer">
+          <span class="post-date">April 2, 2026</span>
+          <a href="blog-post.html" class="post-read">Read →</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="post-card">
+      <div class="post-img" style="background:linear-gradient(135deg,#2b2b2b,#555);">🎨</div>
+      <div class="post-body">
+        <span class="post-tag">Printing</span>
+        <a href="blog-post.html" class="post-title">What is DTF Printing? A Complete Guide for Corporate Merchandise</a>
+        <p class="post-excerpt">Direct to Film printing is revolutionising branded merchandise. No colour limits, no minimums — here's everything you need to know.</p>
+        <div class="post-footer">
+          <span class="post-date">March 14, 2026</span>
+          <a href="blog-post.html" class="post-read">Read →</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="post-card">
+      <div class="post-img" style="background:linear-gradient(135deg,#1a4a2a,#2a7a4a);">💼</div>
+      <div class="post-body">
+        <span class="post-tag">Corporate Gifting</span>
+        <a href="blog-post.html" class="post-title">Why Corporate Gifting Matters for Employee Retention in 2026</a>
+        <p class="post-excerpt">Studies show branded gifts boost employee satisfaction and loyalty. Here's how to build a gifting strategy that actually works.</p>
+        <div class="post-footer">
+          <span class="post-date">February 28, 2026</span>
+          <a href="blog-post.html" class="post-read">Read →</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="post-card">
+      <div class="post-img" style="background:linear-gradient(135deg,#4a3a00,#8a6a00);">🧢</div>
+      <div class="post-body">
+        <span class="post-tag">Apparel</span>
+        <a href="blog-post.html" class="post-title">Branded Caps vs T-Shirts — What Gets More Brand Visibility?</a>
+        <p class="post-excerpt">When it comes to wearable branding, which corporate gift gives you more impressions per rupee? The answer might surprise you.</p>
+        <div class="post-footer">
+          <span class="post-date">February 10, 2026</span>
+          <a href="blog-post.html" class="post-read">Read →</a>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</div>
+
+<!-- NEWSLETTER -->
+<div class="newsletter-bar">
+  <div class="newsletter-text">
+    <h3>Stay Inspired 💡</h3>
+    <p>Get corporate gifting ideas, seasonal offers and branding tips delivered to your inbox.</p>
+  </div>
+  <div class="newsletter-form">
+    <input type="email" class="newsletter-input" placeholder="your@company.com">
+    <button class="newsletter-btn">Subscribe</button>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <a href="index.html"><img src="Blackthreads Logo White.png" alt="Blackthreads" class="footer-logo-img"></a>
+  <div class="footer-links">
+    <a href="index.html#about">About</a>
+    <a href="index.html#categories">Products</a>
+    <a href="blog.html">Blog</a>
+    <a href="index.html#faq">FAQ</a>
+    <a href="index.html#contact">Contact</a>
+  </div>
+  <div class="footer-copy">© 2026 Blackthreads. All rights reserved.</div>
+</footer>
+
+<!-- WHATSAPP -->
+<div class="wa-widget">
+  <a href="https://wa.me/917306815048?text=Hi%20Blackthreads%2C%20I%20read%20your%20blog%20and%20I%27m%20interested%20in%20corporate%20gifting." target="_blank" rel="noopener" class="wa-btn" aria-label="WhatsApp Blackthreads">
+    <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+</div>
+
+</body>
+</html>
