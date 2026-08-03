@@ -4,7 +4,6 @@ backend:
   branch: main
   base_url: https://api.netlify.com
   auth_endpoint: auth
-  app_id: Ov23liXnqaSFQNZHb1l7
 
 media_folder: "blog-images"
 public_folder: "/blog-images"
@@ -18,10 +17,21 @@ collections:
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Publish Date", name: "date", widget: "datetime" }
-      - { label: "Category", name: "category", widget: "select", options: ["Corporate Gifting", "Apparel", "Printing", "Tech Gifts", "Hampers", "Trends", "About Us"] }
-      - { label: "Excerpt", name: "excerpt", widget: "text", hint: "Short description shown on blog listing page (1-2 sentences)" }
+      - label: "Category"
+        name: "category"
+        widget: "select"
+        options:
+          - "Corporate Gifting"
+          - "Apparel"
+          - "Printing"
+          - "Tech Gifts"
+          - "Hampers"
+          - "Trends"
+          - "About Us"
+      - { label: "Excerpt", name: "excerpt", widget: "text" }
       - { label: "Featured Image", name: "image", widget: "image", required: false }
       - { label: "Body", name: "body", widget: "markdown" }
-      - { label: "SEO Description", name: "seo_description", widget: "text", required: false, hint: "For Google search results — keep under 160 characters" }
-      - { label: "Featured Post", name: "featured", widget: "boolean", default: false, hint: "Show this post in the featured spot on blog page" }
+      - { label: "SEO Description", name: "seo_description", widget: "text", required: false }
+      - { label: "Featured Post", name: "featured", widget: "boolean", default: false }
 
+      
