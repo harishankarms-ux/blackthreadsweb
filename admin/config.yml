@@ -24,3 +24,4 @@ collections:
       - { label: "Body", name: "body", widget: "markdown" }
       - { label: "SEO Description", name: "seo_description", widget: "text", required: false, hint: "For Google search results — keep under 160 characters" }
       - { label: "Featured Post", name: "featured", widget: "boolean", default: false, hint: "Show this post in the featured spot on blog page" }
+
