@@ -1,10 +1,6 @@
 backend:
-  name: github
-  repo: harishankarms-ux/blackthreadsweb
+  name: git-gateway
   branch: main
-  base_url: https://api.netlify.com
-  auth_endpoint: auth
-  site_domain: lovely-entremet-e829f1.netlify.app
 
 media_folder: "blog-images"
 public_folder: "/blog-images"
@@ -34,5 +30,3 @@ collections:
       - { label: "Body", name: "body", widget: "markdown" }
       - { label: "SEO Description", name: "seo_description", widget: "text", required: false }
       - { label: "Featured Post", name: "featured", widget: "boolean", default: false }
-
-      
